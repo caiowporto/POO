@@ -8,5 +8,5 @@
 
 ## Aulas
 
-- [Aula 01](aula-01) - Introdução à linguagem Java
+- [Aula 01](aula/2026-07-27) - Introdução à linguagem Java
 
