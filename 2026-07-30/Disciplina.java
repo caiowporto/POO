@@ -18,13 +18,13 @@ void main(){
                 IO.println("Valor Invalido. Dias permitidos: seg, ter, qua, qui ou sex.");
                 break;
         }
-        
+        p
     } while (!aulas.equals("nao"));
 
     String texto = String.format("Na disciplina de %s você tem aulas nos seguintes dias: ", sigla);
     IO.println(texto);
 
-    for (int i = 0; i < indice-1; i++){
+    for (int i = 0; i < indice; i++){
         String mensagem = String.format("- %s", dias[i]);
         IO.println(mensagem);
         
