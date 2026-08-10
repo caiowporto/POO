@@ -1,6 +1,5 @@
 package engtelecom.poo;
 
-import java.util.Locale;
 import java.util.Random;
 
 public class App {
