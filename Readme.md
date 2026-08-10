@@ -7,8 +7,10 @@
 ## Laboratórios
 
 - [Laboratório 01](laboratorios/lab-01) - Sistema de Controle de Versão
+- [Laboratório 02](laboratorios/lab-02) - Prática com a linguagem Java
 
 ## Aulas
 
 - [Aula 01](aula/2026-07-27) - Introdução à linguagem Java
+- [Aula 02](aula/2026-07-30) - Introdução à linguagem Java
 
