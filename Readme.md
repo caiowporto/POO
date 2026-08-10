@@ -4,7 +4,7 @@
 
 ## Laboratórios
 
-- [Laboratório 01](lab-01) - Sistema de Controle de Versão
+- [Laboratório 01](laboratorios/lab-01) - Sistema de Controle de Versão
 
 ## Aulas
 
