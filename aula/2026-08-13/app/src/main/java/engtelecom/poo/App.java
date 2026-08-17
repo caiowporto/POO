@@ -11,9 +11,11 @@ public class App {
 
         IO.println(fusca.obterCor());
 
-        fusca.obterVelocidadeAtual();
-        IO.println(fusca.acelerar(50));
-        IO.println(fusca.frear(10));
+        IO.println(fusca.obterVelocidadeAtual());
+        fusca.acelerar(50);
+        IO.println(fusca.obterVelocidadeAtual());
+        fusca.frear(10);
+        IO.println(fusca.obterVelocidadeAtual());
 
     }
 }

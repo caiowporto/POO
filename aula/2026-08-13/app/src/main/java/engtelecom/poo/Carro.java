@@ -21,21 +21,21 @@ public class Carro {
         return velocidadeAtual;
     }
 
-    public int acelerar(int incVelocidade){
-        int velocidadeFinal = velocidadeAtual + incVelocidade;
+    public void acelerar(int incVelocidade){
+        int velocidadeFinal = obterVelocidadeAtual() + incVelocidade;
         if (velocidadeFinal > 100) {
-            return 100;
+            velocidadeAtual = 100;
         } else{
-            return velocidadeFinal;
+            velocidadeAtual = velocidadeFinal;
         }
     }
 
-    public int frear(int decVelocidade){
-        int velocidadeFinal = velocidadeAtual - decVelocidade;
+    public void frear(int decVelocidade){
+        int velocidadeFinal = obterVelocidadeAtual() - decVelocidade;
         if (velocidadeFinal < 0) {
-            return 0;
+            velocidadeAtual = 0;
         } else{
-            return velocidadeFinal;
+            velocidadeAtual = velocidadeFinal;
         }
     }
 
