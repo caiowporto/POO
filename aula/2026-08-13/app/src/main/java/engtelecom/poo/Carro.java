@@ -22,21 +22,19 @@ public class Carro {
     }
 
     public void acelerar(int incVelocidade){
-        int velocidadeFinal = obterVelocidadeAtual() + incVelocidade;
-        if (velocidadeFinal > 100) {
-            velocidadeAtual = 100;
-        } else{
-            velocidadeAtual = velocidadeFinal;
-        }
+        int velocidadeFinal = velocidadeAtual + incVelocidade;
+        velocidadeAtual = Math.min(velocidadeFinal, 100); // pega o menor valor entre os dois termos
+//        if (incVelocidade > 0){
+//            velocidadeAtual = ((velocidadeAtual + incVelocidade) < 100) ? velocidadeAtual + incVelocidade : 100;
+//        } (? é então e : é senão.)
     }
 
     public void frear(int decVelocidade){
-        int velocidadeFinal = obterVelocidadeAtual() - decVelocidade;
-        if (velocidadeFinal < 0) {
-            velocidadeAtual = 0;
-        } else{
-            velocidadeAtual = velocidadeFinal;
-        }
+        int velocidadeFinal = velocidadeAtual - decVelocidade;
+        velocidadeAtual = Math.max(velocidadeFinal, 0); // pega o maior valor ente os dois termos
+//        if (decVelocidade > 0){
+//            velocidadeAtual = ((velocidadeAtual - decVelocidade) < 0) ? velocidadeAtual - decVelocidade : 0;
+//        } (? é então e : é senão.)
     }
 
 
