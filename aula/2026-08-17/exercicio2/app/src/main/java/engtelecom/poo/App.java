@@ -8,7 +8,7 @@ public class App {
         String nome = IO.readln("Escolha o nome do seu personagem: ");
         fulano.definirNome(nome);
 
-        String roupa = IO.readln("Escolha o traje do seu personagem: (Casual, Guerreiro ou Futurista)");
+        String roupa = IO.readln("Escolha o traje do seu personagem (Casual, Guerreiro ou Futurista): ");
         fulano.definirRoupa(roupa);
         IO.println(fulano.obterRoupaAtual());
 
