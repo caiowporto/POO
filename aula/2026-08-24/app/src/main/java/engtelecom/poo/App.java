@@ -4,14 +4,73 @@
 package engtelecom.poo;
 
 public class App {
+    private Pessoa[] agenda = new Pessoa[100];
+    private int contador = 0;
+
+    private int menu(){
+        IO.println("1 - Cadastrar");
+        IO.println("2 - Dados de uma pessoa");
+        IO.println("3 - Listar todas as pessoas");
+        IO.println("4 - Sair");
+        return Integer.parseInt(IO.readln("Entre com a opção desejada: "));
+    }
+
+    private void cadastrar(){
+        String nome = IO.readln("Entre com o nome: ");
+        String email = IO.readln("Entre com o email: ");
+        Pessoa p = new Pessoa(nome, email);
+
+        this.agenda[contador++] = p;
+    }
+
+    private void dados(){
+        int id = Integer.parseInt(IO.readln("Entre com o id da pessoa desejada: "));
+        IO.println(agenda[id]);
+    }
+
+    private void listar(){
+        for(int i = 0; i < agenda.length; i++){
+            String s = String.format("| %-5d | %-10s |%n", 12, "Juca");
+            String b = "+" + "-".repeat(s.length()-3) + "+";
+            IO.println(b);
+            IO.print(s);
+            IO.println(b);
+        }
+    }
+
     public static void main(String[] args) {
-        Pessoa fulano = new Pessoa("caio@hotmail.com", "Caio");
-        Pessoa ciclano = new Pessoa("luiza@hotmail.com", "Luiza");
+//        Pessoa fulano = new Pessoa("caio@hotmail.com", "Caio");
+//        Pessoa ciclano = new Pessoa("luiza@hotmail.com", "Luiza");
+//
+//        IO.println(fulano.getId());
+//        IO.println(ciclano.getId());
+//
+////        IO.println(fulano.toString());
+////        IO.println(ciclano.toString());
+//
+//        IO.println(fulano);
+//        IO.println(ciclano);
+//
+//        String s = String.format("| %-5d | %-10s |%n", 12, "Juca");
+//        String b = "+" + "-".repeat(s.length()-3) + "+";
+//        IO.println(b);
+//        IO.print(s);
+//        IO.println(b);
 
-        IO.println(fulano.getId());
-        IO.println(ciclano.getId());
+        App app = new App();
 
-        IO.println(fulano.toString());
-        IO.println(ciclano.toString());
+
+            switch(app.menu()){
+
+                case 1 -> {
+                    app.cadastrar();
+                }
+                case 2 -> {
+                    app.dados();
+                }
+            }
+
+
+
     }
 }
