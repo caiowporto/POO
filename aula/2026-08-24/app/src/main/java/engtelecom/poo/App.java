@@ -20,7 +20,7 @@ public class App {
         String email = IO.readln("Entre com o email: ");
         Pessoa p = new Pessoa(nome, email);
 
-        this.agenda[contador++] = p;
+        this.agenda[++contador] = p;
     }
 
     private void dados(){
@@ -30,11 +30,13 @@ public class App {
 
     private void listar(){
         for(int i = 0; i < agenda.length; i++){
-            String s = String.format("| %-5d | %-10s |%n", 12, "Juca");
-            String b = "+" + "-".repeat(s.length()-3) + "+";
-            IO.println(b);
-            IO.print(s);
-            IO.println(b);
+            if (agenda[i] != null) {
+                String s = String.format("| %-5d | %-15s |%n", agenda[i].getId(), agenda[i].getNome());
+                String b = "+" + "-".repeat(s.length()-3) + "+";
+                IO.println(b);
+                IO.print(s);
+                IO.println(b);
+            }
         }
     }
 
@@ -59,16 +61,26 @@ public class App {
 
         App app = new App();
 
+            do {
+                switch (app.menu()) {
 
-            switch(app.menu()){
-
-                case 1 -> {
-                    app.cadastrar();
+                    case 1 -> {
+                        app.cadastrar();
+                    }
+                    case 2 -> {
+                        app.dados();
+                    }
+                    case 3 -> {
+                        app.listar();
+                    }
+                    case 4 -> {
+                        IO.println("Saindo...");
+                    }
+                    default -> {
+                        IO.println("Opcao invalida!");
+                    }
                 }
-                case 2 -> {
-                    app.dados();
-                }
-            }
+            } while (app.menu() != 4);
 
 
 

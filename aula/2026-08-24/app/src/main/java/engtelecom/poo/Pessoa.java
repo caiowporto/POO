@@ -13,7 +13,7 @@ public class Pessoa {
     // métodos
 
 
-    public Pessoa(String email, String nome) {
+    public Pessoa(String nome, String email) {
         this.email = email;
         this.nome = nome;
         this.id = ++CONTADOR;
@@ -21,6 +21,10 @@ public class Pessoa {
 
     public int getId() {
         return id;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
 //    @Override
