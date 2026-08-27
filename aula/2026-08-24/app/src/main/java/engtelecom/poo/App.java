@@ -25,7 +25,11 @@ public class App {
 
     private void dados(){
         int id = Integer.parseInt(IO.readln("Entre com o id da pessoa desejada: "));
-        IO.println(agenda[id]);
+        for (int i = 0; i < contador; i++){
+            if (id == agenda[i].getId()){
+                IO.println(agenda[i]);
+            }
+        }
     }
 
     private void listar(){
@@ -47,8 +51,8 @@ public class App {
 //        IO.println(fulano.getId());
 //        IO.println(ciclano.getId());
 //
-////        IO.println(fulano.toString());
-////        IO.println(ciclano.toString());
+//       IO.println(fulano.toString());
+//        IO.println(ciclano.toString());
 //
 //        IO.println(fulano);
 //        IO.println(ciclano);
@@ -61,8 +65,11 @@ public class App {
 
         App app = new App();
 
+        int opcao = 0;
+
             do {
-                switch (app.menu()) {
+                opcao = app.menu();
+                switch (opcao) {
 
                     case 1 -> {
                         app.cadastrar();
@@ -80,7 +87,7 @@ public class App {
                         IO.println("Opcao invalida!");
                     }
                 }
-            } while (app.menu() != 4);
+            } while (opcao != 4);
 
 
 
