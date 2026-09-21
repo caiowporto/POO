@@ -68,8 +68,17 @@ public class App {
             if (!novoAutor.isEmpty()){
                 l.setTitulo(novoAutor);
             }
-            int novoAno = Integer.parseInt(IO.readln("Digite o novo ano: (Enter para pular)"));
+            String novoAnoStr = IO.readln("Digite o novo ano de publicacao: (Enter para pular)");
+            if (!novoAnoStr.isEmpty()){
+                int novoAno = Integer.parseInt(novoAnoStr);
+                l.setAnoPublicacao(novoAno);
+            }
         }
+    }
+
+    public void remover(){
+        String isbn = IO.readln("Digite o numero ISBN do livro: ");
+        livros.remove(isbn);
     }
 
     public static void main(String[] args) {
@@ -83,5 +92,8 @@ public class App {
         app.consultar();
         app.consultaPorAutor();
         app.consultaPorAno();
+        app.atualizarDados();
+        app.remover();
+        app.listar();
     }
 }
