@@ -10,12 +10,18 @@ plugins {
     application
 }
 
+tasks.run.configure {
+    standardInput = System.`in`
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
+    // Source: https://mvnrepository.com/artifact/com.google.zxing/core
+    implementation("com.google.zxing:core:3.5.4")
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
 
@@ -34,7 +40,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    mainClass = "engtelecom.poo.App"
 }
 
 tasks.named<Test>("test") {

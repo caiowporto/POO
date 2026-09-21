@@ -25,35 +25,59 @@ public class App {
     }
 
     public void listar(){
+        String p = String.format("| %-5s | %-15s |%n", "ISBN" , "Titulo");
+        String b = "+" + "-".repeat(27-3) + "+";
+        IO.println(b);
+        IO.print(p);
+        IO.println(b);
         for (var entrada : livros.entrySet()){
-            IO.println("ISBN: " + entrada.getKey());
-            IO.println("Titulo: " + entrada.getValue().getTitulo());
+            String s = String.format("| %-5s | %-15s |%n", entrada.getKey() , entrada.getValue().getTitulo());
+            IO.print(s);
         }
+        IO.println(b);
     }
 
     public void consultar(){
         String isbn = IO.readln("Digite o numero ISBN do livro: ");
-        IO.println(livros.get(isbn));
+        Livro l  = livros.get(isbn);
+        if (l != null){
+            IO.println(l);
+        } else {
+            IO.println("Este numero ISBN nao existe!");
+        }
+
     }
 
     public void consultaPorAutor(){
         String autor = IO.readln("Digite o nome do autor: ");
+        String p = String.format("| %-5s | %-15s |", "ISBN" , "Titulo");
+        String b = "+" + "-".repeat(27-3) + "+";
+        IO.println(b);
+        IO.println(p);
+        IO.println(b);
         for (var entrada : livros.entrySet()){
             if (autor.equals(entrada.getValue().getAutor())){
-                IO.println("ISBN: " + entrada.getKey());
-                IO.println("Titulo: " + entrada.getValue().getTitulo());
+                String s = String.format("| %-5s | %-15s |%n", entrada.getKey() , entrada.getValue().getTitulo());
+                IO.print(s);
             }
         }
+        IO.println(b);
     }
 
     public void consultaPorAno(){
         int ano = Integer.parseInt(IO.readln("Digite o ano de publicacao: "));
+        String p = String.format("| %-5s | %-15s |", "ISBN" , "Titulo");
+        String b = "+" + "-".repeat(27-3) + "+";
+        IO.println(b);
+        IO.println(p);
+        IO.println(b);
         for (var entrada : livros.entrySet()){
             if (ano == entrada.getValue().getAnoPublicacao()){
-                IO.println("ISBN: " + entrada.getKey());
-                IO.println("Titulo: " + entrada.getValue().getTitulo());
+                String s = String.format("| %-5s | %-15s |%n", entrada.getKey() , entrada.getValue().getTitulo());
+                IO.print(s);
             }
         }
+        IO.println(b);
     }
 
     public void atualizarDados(){
@@ -66,7 +90,7 @@ public class App {
             }
             String novoAutor = IO.readln("Digite o novo autor: (Enter para pular)");
             if (!novoAutor.isEmpty()){
-                l.setTitulo(novoAutor);
+                l.setAutor(novoAutor);
             }
             String novoAnoStr = IO.readln("Digite o novo ano de publicacao: (Enter para pular)");
             if (!novoAnoStr.isEmpty()){
@@ -78,22 +102,63 @@ public class App {
 
     public void remover(){
         String isbn = IO.readln("Digite o numero ISBN do livro: ");
-        livros.remove(isbn);
+        Livro l = livros.remove(isbn);
+        if (l != null){
+            IO.println("Livro removido com sucesso!");
+        } else {
+            IO.println("Este numero ISBN nao existe!");
+        }
+    }
+
+    private int menu(){
+        IO.println("1 - Cadastrar livro");
+        IO.println("2 - Listar todos os livros cadastrados");
+        IO.println("3 - Consultar livros pelo ISBN");
+        IO.println("4 - Consultar livros por autor");
+        IO.println("5 - Consultar livros por ano de publicacao");
+        IO.println("6 - Atualizar dados de um livro");
+        IO.println("7 - Remover livro");
+        IO.println("8 - Sair");
+        return Integer.parseInt(IO.readln("Entre com a opção desejada: "));
     }
 
     public static void main(String[] args) {
 
         App app = new App();
 
-        app.cadastrar();
-        app.cadastrar();
+        int opcao;
 
-        app.listar();
-        app.consultar();
-        app.consultaPorAutor();
-        app.consultaPorAno();
-        app.atualizarDados();
-        app.remover();
-        app.listar();
+        do {
+            opcao = app.menu();
+            switch(opcao){
+                case 1 -> {
+                    app.cadastrar();
+                }
+                case 2 -> {
+                    app.listar();
+                }
+                case 3 -> {
+                    app.consultar();
+                }
+                case 4 -> {
+                    app.consultaPorAutor();
+                }
+                case 5 -> {
+                    app.consultaPorAno();
+                }
+                case 6 -> {
+                    app.atualizarDados();
+                }
+                case 7 -> {
+                    app.remover();
+                }
+                case 8 -> {
+                    IO.println("Saindo...");
+                }
+                default -> {
+                    IO.println("Opcao invalida!");
+                }
+            }
+        } while (opcao != 8);
     }
 }
