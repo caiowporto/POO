@@ -58,3 +58,28 @@ classDiagram
     
  Aluno *-- Endereco 
 ```
+
+```mermaid
+classDiagram
+    direction LR
+    
+    class Aviao{
+        - maxTripulantes : int
+        - maxPassageiros : int
+        - capMaxCombustivel : int
+        - motorAviao : ArrayList~Motor~
+        + Aviao(mt: int, mp: int, cmc: int, qm : int, t : String) 
+        + onOff() void
+        + onOffMotor(m: Motor) void
+    }
+
+    class Motor{
+        - tipoMotor : String
+        - testeOnOff : boolean
+        + Motor(t: String) 
+        + onOff() void
+    }
+    
+    Aviao o-- "1..8"Motor
+    
+```
