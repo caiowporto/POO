@@ -11,5 +11,18 @@ public class App {
         IO.println(walle.deslocar(3, "L"));
         IO.println(walle.deslocar(8, "S"));
         IO.println(walle.deslocar(100, "O"));
+        IO.println(walle);
+        walle.carregarBateria();
+        IO.println(walle);
+        IO.println(walle.deslocar(3, "O"));
+        IO.println(walle.deslocar(1, "N"));
+        IO.println(walle);
+        walle.carregarBateria();
+        IO.println(walle);
+        IO.println(walle.deslocar(3, "L"));
+        IO.println(walle.deslocar(1, "S"));
+        IO.println(walle);
+        walle.carregarBateria();
+        IO.println(walle);
     }
 }

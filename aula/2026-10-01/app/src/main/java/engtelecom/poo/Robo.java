@@ -4,62 +4,55 @@ public class Robo {
 
     // atributos
 
-    private int bateria;
+    private Bateria bateria;
     private Coordenada localAtual;
     private Coordenada tamMapa;
-
-    // métodos privados
-
-    private int consumoBateria(int unidades, int valorFinal, int valorAtual){
-        return Math.min(Math.abs(valorFinal - valorAtual), Math.abs(unidades - valorAtual));
-    }
 
     // métodos publicos
 
 
     public Robo(int largura, int altura, int x, int y) {
-        this.bateria = 100;
+        this.bateria = new Bateria();
         this.localAtual = new Coordenada(x, y);
         this.tamMapa = new Coordenada(largura, altura);
     }
 
     public Coordenada deslocar(int unidades, String direcao){
-        int consumo;
-        if(unidades <= bateria){
+        if(unidades <= bateria.valor){
             switch (direcao){
                 case "N" -> {
                     if (this.tamMapa.y >= (this.localAtual.y + unidades)) {
                         this.localAtual.y += unidades;
-                        bateria -= unidades;
+                        bateria.valor -= unidades;
                     } else {
-                        bateria -= consumoBateria(unidades, this.tamMapa.y, this.localAtual.y);
+                        bateria.valor -= bateria.consumo(unidades, this.tamMapa.y, this.localAtual.y);
                         this.localAtual.y = this.tamMapa.y;
                     }
                 }
                 case "S" -> {
                     if ((this.localAtual.y - unidades) >= 0) {
                         this.localAtual.y -= unidades;
-                        bateria -= unidades;
+                        bateria.valor -= unidades;
                     } else {
-                        bateria -= consumoBateria(unidades, this.tamMapa.y, this.localAtual.y);
+                        bateria.valor -= bateria.consumo(unidades, this.tamMapa.y, this.localAtual.y);
                         this.localAtual.y = 0;
                     }
                 }
                 case "L" -> {
-                    if (this.tamMapa.x >= (this.localAtual.y + unidades)) {
+                    if (this.tamMapa.x >= (this.localAtual.x + unidades)) {
                         this.localAtual.x += unidades;
-                        bateria -= unidades;
+                        bateria.valor -= unidades;
                     } else {
-                        bateria -= consumoBateria(unidades, this.tamMapa.x, this.localAtual.x);
+                        bateria.valor -= bateria.consumo(unidades, this.tamMapa.x, this.localAtual.x);
                         this.localAtual.x = this.tamMapa.x;
                     }
                 }
                 case "O" -> {
-                    if ((this.localAtual.y - unidades) >= 0) {
+                    if ((this.localAtual.x - unidades) >= 0) {
                         this.localAtual.x -= unidades;
-                        bateria -= unidades;
+                        bateria.valor -= unidades;
                     } else {
-                        bateria -= consumoBateria(unidades, this.tamMapa.x, this.localAtual.x);
+                        bateria.valor -= bateria.consumo(unidades, this.tamMapa.x, this.localAtual.x);
                         this.localAtual.x = 0;
                     }
                 }
@@ -69,6 +62,10 @@ public class Robo {
         return localAtual;
     }
 
+    public void carregarBateria(){
+        bateria.carregar();
+    }
+
     // adicionar metodo para carregar a bateria
     // caso tiver carregado duas vezes, o total da bateria subtrai em um
     // caso ja estiver em 100, fica em 100
@@ -76,8 +73,7 @@ public class Robo {
 
     @Override
     public String toString() {
-        return "Robo{" +
-                "bateria = " + bateria +
+        return "Robo{" + bateria +
                 ", localAtual =" + localAtual + "}";
     }
 }
