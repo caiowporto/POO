@@ -19,10 +19,10 @@ public class Retangulo extends Forma{
     }
 
     public int calcularArea(){
-        return (coordenadaFinal.x - coordenadaInicial.x) * (coordenadaFinal.y - coordenadaInicial.y);
+        return Math.abs((coordenadaFinal.x - coordenadaInicial.x) * (coordenadaFinal.y - coordenadaInicial.y));
     }
 
     public double calcularPerimetro(){
-        return (2 * (coordenadaFinal.x - coordenadaInicial.x)) + (2 * (coordenadaFinal.y - coordenadaInicial.y));
+        return Math.abs((2 * (coordenadaFinal.x - coordenadaInicial.x)) + (2 * (coordenadaFinal.y - coordenadaInicial.y)));
     }
 }
