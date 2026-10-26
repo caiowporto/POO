@@ -1,12 +1,12 @@
-package engtelecom.poo;
+package engtelecom.poo.personagens;
 
 public class Personagem {
 
     // atributos
 
-    private int vida;
-    private int ataque;
-    private double velocidade;
+    protected int vida;
+    protected int ataque;
+    protected double velocidade;
 
     // métodos
 
@@ -17,11 +17,7 @@ public class Personagem {
         this.velocidade = velocidade;
     }
 
-
-
-    public String mover(){
-        return "";
-    }
+    public String mover(){return "";}
 
     public String atacar(){
         return "";

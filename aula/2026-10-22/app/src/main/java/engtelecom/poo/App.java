@@ -3,10 +3,41 @@
  */
 package engtelecom.poo;
 
+import engtelecom.poo.formas.Circulo;
+import engtelecom.poo.formas.Coordenada;
+import engtelecom.poo.formas.Linha;
+import engtelecom.poo.formas.Retangulo;
+import engtelecom.poo.personagens.Aldeao;
+import engtelecom.poo.personagens.Arqueiro;
+import engtelecom.poo.personagens.Cavaleiro;
+
 public class App {
 
     public static void main(String[] args) {
+//        Cavaleiro cavaleiro = new Cavaleiro();
+//        Aldeao aldeao = new Aldeao();
+//        Arqueiro arqueiro = new Arqueiro();
+//
+//        IO.println(cavaleiro.atacar());
+//        IO.println(cavaleiro.mover());
+//
+//        IO.println(arqueiro.atacar());
+//        IO.println(arqueiro.mover());
+//
+//        IO.println(aldeao.atacar());
+//        IO.println(aldeao.mover());
 
+        Linha linha = new Linha(new Coordenada(1,1), new Coordenada(2, 3), "Preta");
+        IO.println(linha.desenhar());
 
+        Circulo circulo = new Circulo(new Coordenada(3, 4), "Vermelho", 2);
+        IO.println(circulo.desenhar());
+        IO.println(circulo.calcularArea());
+        IO.println(circulo.calcularPerimetro());
+
+        Retangulo retangulo = new Retangulo(new Coordenada(1,1), new Coordenada(2, 2), "Roxo");
+        IO.println(retangulo.desenhar());
+        IO.println(retangulo.calcularArea());
+        IO.println(retangulo.calcularPerimetro());
     }
 }
