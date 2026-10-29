@@ -1,6 +1,6 @@
 package engtelecom.poo.formas;
 
-public class Forma {
+public abstract class Forma {
 
     // atributos
 
@@ -15,5 +15,5 @@ public class Forma {
         this.corDaLinha = corDaLinha;
     }
 
-    public String desenhar(){return "";}
+    public abstract String desenhar();
 }

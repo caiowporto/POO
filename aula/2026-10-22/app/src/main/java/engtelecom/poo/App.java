@@ -3,13 +3,12 @@
  */
 package engtelecom.poo;
 
-import engtelecom.poo.formas.Circulo;
-import engtelecom.poo.formas.Coordenada;
-import engtelecom.poo.formas.Linha;
-import engtelecom.poo.formas.Retangulo;
+import engtelecom.poo.formas.*;
 import engtelecom.poo.personagens.Aldeao;
 import engtelecom.poo.personagens.Arqueiro;
 import engtelecom.poo.personagens.Cavaleiro;
+
+import java.util.ArrayList;
 
 public class App {
 
@@ -27,17 +26,26 @@ public class App {
 //        IO.println(aldeao.atacar());
 //        IO.println(aldeao.mover());
 
-        Linha linha = new Linha(new Coordenada(1,1), new Coordenada(2, 3), "Preta");
-        IO.println(linha.desenhar());
+//        Linha linha = new Linha(new Coordenada(1,1), new Coordenada(2, 3), "Preta");
+//        IO.println(linha.desenhar());
+//
+//        Circulo circulo = new Circulo(new Coordenada(3, 4), "Vermelho", 2);
+//        IO.println(circulo.desenhar());
+//        IO.println(circulo.calcularArea());
+//        IO.println(circulo.calcularPerimetro());
+//
+//        Retangulo retangulo = new Retangulo(new Coordenada(1,1), new Coordenada(2, 2), "Roxo");
+//        IO.println(retangulo.desenhar());
+//        IO.println(retangulo.calcularArea());
+//        IO.println(retangulo.calcularPerimetro());
 
-        Circulo circulo = new Circulo(new Coordenada(3, 4), "Vermelho", 2);
-        IO.println(circulo.desenhar());
-        IO.println(circulo.calcularArea());
-        IO.println(circulo.calcularPerimetro());
+        ArrayList<Forma> forma = new ArrayList<>();
 
-        Retangulo retangulo = new Retangulo(new Coordenada(1,1), new Coordenada(2, 2), "Roxo");
-        IO.println(retangulo.desenhar());
-        IO.println(retangulo.calcularArea());
-        IO.println(retangulo.calcularPerimetro());
+        forma.add(new Circulo(new Coordenada(3, 2), "Azul", 2));
+        forma.add(new Linha(new Coordenada(1, 2), new Coordenada(2, 4), "Preta"));
+        forma.add(new Retangulo(new Coordenada(2, 0), new Coordenada(4, 1), "Preta"));
+        forma.add(new Triangulo(new Coordenada(1,1), new Coordenada(4, 1), new Coordenada(2, 4), "Roxo"));
+
+        forma.forEach(f-> IO.println(f.desenhar()));
     }
 }
