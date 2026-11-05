@@ -3,8 +3,33 @@
  */
 package engtelecom.poo;
 
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args){
+        ArrayList<Animal> animais = new ArrayList<>();
+
+        Arara b = new Arara("Arara");
+
+        animais.add(b);
+        animais.add(new Avestruz("Avestruz"));
+        animais.add(new Baleia("Baleia"));
+        animais.add(new Cachorro("Cachorro"));
+        animais.add(new Gato("Gato"));
+        animais.add(new Leao("Leao"));
+        animais.add(new Lobo("Lobo"));
+        animais.add(new Macaco("Macaco"));
+        animais.add(new Morcego("Morcego"));
+        animais.add(new Ornitorrinco("Ornitorrinco"));
+        animais.add(new Pinguim("Pinguim"));
+
+        animais.forEach(f-> IO.println(f.comer()));
+        animais.forEach(f-> {
+            if (f instanceof Arara a){
+                IO.println(a.falar());
+            }
+        });
+
 
     }
 }
