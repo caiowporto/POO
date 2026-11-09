@@ -5,7 +5,15 @@ package engtelecom.poo;
 
 public class App {
     public static void main(String[] args) {
+        Funcionario c = new MensalistaFixo("Caio", 5000);
+        Funcionario l = new Horista("Luiza", 300, 10, 100, 5);
+        Funcionario h = new Comissionado("Hudson", 100000, 5);
+        Funcionario f = new ComissionadoEfetivo("Fabiana", 3000, 100000, 5);
 
+        IO.println(c.calcularSalario());
+        IO.println(l.calcularSalario());
+        IO.println(h.calcularSalario());
+        IO.println(f.calcularSalario());
 
     }
 }
