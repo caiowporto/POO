@@ -3,7 +3,7 @@ package engtelecom.poo;
 public abstract class Veiculo {
 
     private int id;
-    private int velAtual;
+    public int velAtual;
     private final int VELMAXIMA = 200;
 
     public Veiculo(int id) {
